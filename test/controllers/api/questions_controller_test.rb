@@ -1,23 +1,23 @@
 require 'test_helper'
 
-class Api::CardsControllerTest < ActionDispatch::IntegrationTest
+class Api::QuestionsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get api_cards_index_url
+    get api_questions_index_url
     assert_response :success
   end
 
   test "should get show" do
-    get api_cards_show_url
+    get api_questions_show_url
     assert_response :success
   end
 
   test "should get update" do
-    get api_cards_update_url
+    get api_questions_update_url
     assert_response :success
   end
 
   test "should get destroy" do
-    get api_cards_destroy_url
+    get api_questions_destroy_url
     assert_response :success
   end
 

@@ -1,13 +1,13 @@
 class Api::CardsController < ApplicationController
   def index
-    render json: Cards.all
+    render json: Card.all
   end
 
   def show
-    render json: Cards.find(params[:id])
+    render json: Card.find(params[:id])
   end
 
-  def create
+  def update
   end
 
   def destroy
