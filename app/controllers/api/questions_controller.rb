@@ -1,5 +1,6 @@
 class Api::QuestionsController < ApplicationController
   def index
+    render json: Card.all
   end
 
   def show
