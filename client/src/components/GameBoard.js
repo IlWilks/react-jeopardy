@@ -14,32 +14,34 @@ const GameBoard = (props) => {
   const getCards= async () => {
     try {
       let res = await axios.get("/api/cards");
-      console.log(res.data)
       setCards(res.data)
     } catch (err) {
       alert(err);
     }
   };
 
+  const onClickHandler = (c) => {
+    props.changeTitle(c.answer)
+    props.setId(c.id);
+  }
   
 
   return (
   <div>
-    <Header as="h1">Let's Play Jeopardy!</Header>
-    <Header as="h1">Points: {props.score}</Header>
-    <Grid columns='four'>
+    <div>
+      <Header as="h1">Let's Play Jeopardy!</Header>
+      <Header as="h1">Points: {props.score}</Header>
+    </div>
+    <div style={{display: 'flex', justifyContent: 'space-around', alignContent: 'flex-start', flexWrap: 'wrap',}}>
       {cards.map((c)=> (
-        <Grid.Row>
-          <Grid.Column>
-          <Card as={Link} to={`/${c.id}`} onClick={()=> props.setId(c.id)}>
+          <Card as={Link} to={`/${c.id}`} onClick={()=> onClickHandler(c)} style = {{height:"125px", width:"250px"}}>
             <Card.Content>
               <Card.Header>{c.answer}</Card.Header>
+              <Card.Description>{c.category}</Card.Description>
             </Card.Content>
           </Card>
-          </Grid.Column>
-        </Grid.Row>
       ))}
-    </Grid>
+    </div>
   </div>
 
   )

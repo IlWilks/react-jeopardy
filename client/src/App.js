@@ -7,22 +7,28 @@ import GameBoard from './components/GameBoard';
 
 const App = () => {
 
-  const [score, setScore] = useState(100)
-  let pathId = 0;
+  const [score, setScore] = useState(0)
+  const [title, setTitle] = useState('')
+  const [id, setId] = useState(0)
 
   const addPoints = (points) => {
     setScore(score + points)
   }
 
-  const setId = (id) => {
-    pathId = id
+  const changeTitle = (title) => {
+    setTitle(title)
+  }
+
+  const changeId = (id) => {
+    setId(id)
   }
 
   const renderGameboard = () => (
     <GameBoard 
       score={score}
       addPoints = {addPoints}
-      setId = {setId}
+      changeTitle = {changeTitle}
+      setId = {changeId}
     />
   )
 
@@ -30,7 +36,8 @@ const App = () => {
     <Questioner
       score={score}
       addPoints = {addPoints}
-      id = {pathId}
+      title = {title}
+      id = {id}
     />
   )
 

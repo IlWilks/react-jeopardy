@@ -11,7 +11,6 @@ const Questioner = (props) => {
   }, [])
 
   const getQuestions= async () => {
-    console.log(props)
     try {
       let res = await axios.get(`/api/cards/${props.id}/questions/1`);
       setSelections(res.data)
@@ -35,7 +34,7 @@ const Questioner = (props) => {
 
   return (
     <div>
-    <Header as="h1">Answer Here</Header>
+    <Header as="h1">{props.title}</Header>
     <div>
       <Card as={Link} to={`/`} onClick={() => triggerGuess(selections.answer1)}>
         <Card.Content>
@@ -59,7 +58,6 @@ const Questioner = (props) => {
       </Card>  
     </div>
   </div>
-
   )
 }
 

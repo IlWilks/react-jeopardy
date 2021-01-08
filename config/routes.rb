@@ -4,4 +4,5 @@ Rails.application.routes.draw do
       resources :questions
     end
   end
+  get "*other", to: "static#index"
 end
